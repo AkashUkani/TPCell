@@ -22,11 +22,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_centerHorizontal="true"
-
-                        android:id="@+id/data_entry_enroll"
+                        android:id="@+id/data_entry_first_name"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/edit_text_design"
-                        android:hint="Enter Enrollment Number"
+                        android:hint="Enter First Number"
                         android:paddingLeft="10dp" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -40,14 +39,44 @@
                         android:layout_height="50dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="20dp"
-                        android:id="@+id/data_entry_name"
+                        android:id="@+id/data_entry_last_name"
                         android:background="@drawable/edit_text_design"
-                        android:hint="Enter your Name"
+                        android:hint="Enter Last Name"
                         android:paddingLeft="10dp" />
                 </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#1A237E">
 
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/data_entry_middle_name"
+                        android:background="@drawable/edit_text_design"
+                        android:hint="Enter Middle Name"
+                        android:paddingLeft="10dp" />
+                </android.support.design.widget.TextInputLayout>
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#1A237E">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:inputType="date"
+                        android:id="@+id/data_entry_birth_date"
+                        android:background="@drawable/edit_text_design"
+                        android:hint="Enter Birth date"
+                        android:paddingLeft="10dp" />
+                </android.support.design.widget.TextInputLayout>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
