@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/my_account"
+            android:icon="@drawable/myaccount"
+            android:title="My Account" />
+        <item
+            android:id="@+id/notice_board"
+            android:icon="@drawable/noticeboard"
+            android:title="Notice Board" />
+        <item
+            android:id="@+id/data_entry"
+            android:icon="@drawable/infoicon"
+            android:title="Data Entry" />
+        <item
+            android:id="@+id/discussion_center"
+            android:icon="@drawable/conversation"
+            android:title="Discussion Center" />
+    </group>
+    <item android:title="Communication">
+        <menu>
+            <item
+                android:id="@+id/help"
+                android:icon="@drawable/helpicon"
+                android:title="Help" />
+            <item
+                android:id="@+id/settings"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Setting" />
+        </menu>
+    </item>
+
+
+</menu>

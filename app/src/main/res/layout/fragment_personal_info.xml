@@ -1,0 +1,63 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.akashvukani.trainingplacementcell.Personal_Info_Fragment"
+    >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:isScrollContainer="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#1A237E">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+
+                        android:id="@+id/data_entry_enroll"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design"
+                        android:hint="Enter Enrollment Number"
+                        android:paddingLeft="10dp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#1A237E">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/data_entry_name"
+                        android:background="@drawable/edit_text_design"
+                        android:hint="Enter your Name"
+                        android:paddingLeft="10dp" />
+                </android.support.design.widget.TextInputLayout>
+
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_design"
+                    android:text="SUBMIT"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:id="@+id/submmit1"/>
+
+            </LinearLayout>
+        </ScrollView>
+</FrameLayout>
