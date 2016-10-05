@@ -1,6 +1,7 @@
 package com.example.akashvukani.trainingplacementcell;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -16,6 +17,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
@@ -23,14 +33,17 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private EditText enroll;
     private EditText pass;
+
+    final String url="http://10.10.10.109:8000/test";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         TextView logintext=(TextView)findViewById(R.id.logintext1);
-        Typeface custome_font = Typeface.createFromAsset(getAssets(),"Allura-Regular.otf");
-        logintext.setTypeface(custome_font);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),"Allura-Regular.otf");
+        logintext.setTypeface(custom_font);
 
         loginButton=(Button)findViewById(R.id.LoginButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -42,15 +55,56 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        final SharedPreferences sharedPreferences=getSharedPreferences("forLogin",MODE_PRIVATE);
+
         enroll=(EditText)findViewById(R.id.enrollLogin);
         pass=(EditText)findViewById(R.id.passwordLogin);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                startActivity(intent);
-                finish();
+                final String Enroll=enroll.getText().toString();
+                final String Pass=pass.getText().toString();
+
+                JSONObject jsonBody=new JSONObject();
+                try {
+                    jsonBody.put("enroll",Enroll);
+                    jsonBody.put("pass",Pass);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST, url, jsonBody,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                String check="";
+                                try {
+                                    check=response.getString("success");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                if(check.equals("1")){
+                                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                                    editor.putString("enrollShared",Enroll);
+                                    editor.commit();
+                                    onLogin();
+                                }
+                                else{
+                                    enroll.setError("Enrollment and Password don't match. Make sure you enter right password.");
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        }
+                );
+                RequestQueue requestQueue= Volley.newRequestQueue(getApplication());
+                requestQueue.add(jsonObjectRequest);
+
             }
         });
     }
@@ -72,4 +126,11 @@ public class LoginActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onLogin(){
+        Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }
