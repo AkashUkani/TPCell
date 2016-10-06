@@ -2,91 +2,188 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.akashvukani.trainingplacementcell.Personal_Info_Fragment"
-    >
-        <ScrollView
+    tools:context="com.example.akashvukani.trainingplacementcell.Personal_Info_Fragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:isScrollContainer="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:isScrollContainer="true">
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/data_entry_first_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_design1"
+                android:hint="Enter First Number"
+                android:paddingLeft="10dp"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue" />
+
+            <EditText
+                android:id="@+id/data_entry_last_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_design1"
+                android:hint="Enter Last Name"
+                android:paddingLeft="10dp"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue" />
+
+            <EditText
+                android:id="@+id/data_entry_middle_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_design1"
+                android:hint="Enter Middle Name"
+                android:paddingLeft="10dp"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue" />
+
+            <EditText
+                android:id="@+id/data_entry_birth_date"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_design1"
+                android:hint="Enter Birth date"
+                android:inputType="date"
+                android:paddingLeft="10dp"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue" />
+
+            <EditText
+                android:id="@+id/data_entry_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_design1"
+                android:hint="Enter Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="10dp"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue" />
+
+            <EditText
+                android:id="@+id/data_entry_contact_no"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_design1"
+                android:hint="Enter Contact No"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingLeft="10dp"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-                <android.support.design.widget.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/address_layout_design"
+                android:orientation="vertical">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="#1A237E">
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:id="@+id/data_entry_first_name"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/edit_text_design"
-                        android:hint="Enter First Number"
-                        android:paddingLeft="10dp" />
-                </android.support.design.widget.TextInputLayout>
+                        android:layout_marginTop="5dp"
+                        android:text="Address"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp" />
+                </RelativeLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <EditText
+                    android:id="@+id/data_entry_house_no"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="#1A237E">
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_design1"
+                    android:hint="Enter House No/Name"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue"
+                    android:textColorHint="@color/blue" />
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:id="@+id/data_entry_last_name"
-                        android:background="@drawable/edit_text_design"
-                        android:hint="Enter Last Name"
-                        android:paddingLeft="10dp" />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
+                <EditText
+                    android:id="@+id/data_entry_street_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="#1A237E">
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_design1"
+                    android:hint="Enter Street Name"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue"
+                    android:textColorHint="@color/blue" />
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:id="@+id/data_entry_middle_name"
-                        android:background="@drawable/edit_text_design"
-                        android:hint="Enter Middle Name"
-                        android:paddingLeft="10dp" />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
+                <EditText
+                    android:id="@+id/data_entry_city"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="#1A237E">
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_design1"
+                    android:hint="Enter city"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue"
+                    android:textColorHint="@color/blue" />
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:inputType="date"
-                        android:id="@+id/data_entry_birth_date"
-                        android:background="@drawable/edit_text_design"
-                        android:hint="Enter Birth date"
-                        android:paddingLeft="10dp" />
-                </android.support.design.widget.TextInputLayout>
-                <Button
+                <EditText
+                    android:id="@+id/data_entry_state"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/button_design"
-                    android:text="SUBMIT"
-                    android:textColor="#ffffff"
-                    android:textSize="20sp"
-                    android:id="@+id/submmit1"/>
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_design1"
+                    android:hint="Enter state"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="@color/blue" />
 
+                <EditText
+                    android:id="@+id/data_entry_pin_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_design1"
+                    android:hint="Enter Pin Code"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue"
+                    android:textColorHint="@color/blue" />
             </LinearLayout>
-        </ScrollView>
+
+            <Button
+                android:id="@+id/submmit1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_design1"
+                android:text="SUBMIT"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

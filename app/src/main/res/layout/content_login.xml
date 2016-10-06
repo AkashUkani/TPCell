@@ -9,37 +9,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#6a78c6">
-
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
 
-            <RelativeLayout
-                android:id="@+id/logintext"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_centerHorizontal="true">
+                <RelativeLayout
+                    android:id="@+id/logintext"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_centerHorizontal="true">
+                    <TextView
+                        android:id="@+id/logintext1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="10dp"
+                        android:text="T&amp;P Cell"
+                        android:textColor="#ffffff"
+                        android:textSize="35sp" />
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/logintext1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="T&amp;P Cell"
-                    android:textColor="#ffffff"
-                    android:textSize="35sp" />
-            </RelativeLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_enroll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/logintext"
-                android:textColorHint="#ffffff">
 
                 <EditText
                     android:id="@+id/enrollLogin"
+                    android:layout_below="@+id/logintext"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="30dp"
@@ -48,20 +42,16 @@
                     android:background="@drawable/edit_text_design_for_login_page"
                     android:hint="Enter Enrollment Number"
                     android:paddingLeft="10dp"
-                    android:textColor="#ffffff" />
-            </android.support.design.widget.TextInputLayout>
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"/>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/input_layout_enroll"
-                android:textColorHint="#ffffff">
+
 
                 <EditText
                     android:id="@+id/passwordLogin"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_below="@+id/enrollLogin"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
@@ -69,23 +59,23 @@
                     android:background="@drawable/edit_text_design_for_login_page"
                     android:hint="Enter Password"
                     android:paddingLeft="10dp"
-                    android:textColor="#ffffff" />
-            </android.support.design.widget.TextInputLayout>
+                    android:textColorHint="#ffffff"
+                    android:textColor="#ffffff"/>
 
-            <Button
-                android:id="@+id/LoginButton"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/input_layout_password"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/button_design_for_login_page"
-                android:text="LOGIN"
-                android:textColor="@color/textcolor"
-                android:textSize="20sp" />
 
+                <Button
+                    android:id="@+id/LoginButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/passwordLogin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/button_design_for_login_page"
+                    android:text="LOGIN"
+                    android:textColor="@color/textcolor"
+                    android:textSize="20sp" />
         </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

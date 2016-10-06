@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
 
         enroll=(EditText)findViewById(R.id.enrollLogin);
         pass=(EditText)findViewById(R.id.passwordLogin);
+        pass.setTypeface(Typeface.DEFAULT);
+        pass.setTransformationMethod(new PasswordTransformationMethod());
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +69,11 @@ public class LoginActivity extends AppCompatActivity {
                 final String Enroll=enroll.getText().toString();
                 final String Pass=pass.getText().toString();
 
-                JSONObject jsonBody=new JSONObject();
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("enrollShared",Enroll);
+                editor.commit();
+                onLogin();
+                /*JSONObject jsonBody=new JSONObject();
                 try {
                     jsonBody.put("enroll",Enroll);
                     jsonBody.put("pass",Pass);
@@ -103,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                 );
                 RequestQueue requestQueue= Volley.newRequestQueue(getApplication());
-                requestQueue.add(jsonObjectRequest);
+                requestQueue.add(jsonObjectRequest); */
 
             }
         });
