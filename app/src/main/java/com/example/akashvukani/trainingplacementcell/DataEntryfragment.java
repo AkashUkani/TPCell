@@ -55,9 +55,10 @@ public class DataEntryfragment extends Fragment {
             if(tabs[position].equalsIgnoreCase("Personal Info")){
                 return new Personal_Info_Fragment();
             }else if(tabs[position].equalsIgnoreCase("Academic Info 1")){
-                return new BlankFragment();
-            }
-            return new BlankFragment();
+                return new Academic_Info_1();
+            }else
+                return new Academic_Info_2();
+
         }
 
         @Override

@@ -5,8 +5,6 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.PasswordTransformationMethod;
@@ -35,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText enroll;
     private EditText pass;
 
-    final String url="http://10.10.10.109:8000/test";
+    final String url="http://192.168.43.98:8000/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         logintext.setTypeface(custom_font);
 
         loginButton=(Button)findViewById(R.id.LoginButton);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in=new Intent(LoginActivity.this,MainActivity.class);
-                startActivity(in);
-                finish();
-            }
-        });
+
 
         final SharedPreferences sharedPreferences=getSharedPreferences("forLogin",MODE_PRIVATE);
 
@@ -69,11 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                 final String Enroll=enroll.getText().toString();
                 final String Pass=pass.getText().toString();
 
-                SharedPreferences.Editor editor=sharedPreferences.edit();
-                editor.putString("enrollShared",Enroll);
-                editor.commit();
-                onLogin();
-                /*JSONObject jsonBody=new JSONObject();
+
+                JSONObject jsonBody=new JSONObject();
                 try {
                     jsonBody.put("enroll",Enroll);
                     jsonBody.put("pass",Pass);
@@ -110,8 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                 );
                 RequestQueue requestQueue= Volley.newRequestQueue(getApplication());
-                requestQueue.add(jsonObjectRequest); */
-
+                requestQueue.add(jsonObjectRequest);
             }
         });
     }

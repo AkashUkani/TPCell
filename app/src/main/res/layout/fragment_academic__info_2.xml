@@ -1,0 +1,241 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.akashvukani.trainingplacementcell.Personal_Info_Fragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+
+            <TextView
+                android:id="@+id/messageForDegreeInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="You haven't yet filled Academic Info1. So first fill data of section 1 than you will be allowed to fill this section."
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:isScrollContainer="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/address_layout_design"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:text="Degree"
+                            android:textColor="@color/blue"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_sem1"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter SPI of sem1 "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_sem2"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter SPI of sem2 "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_sem3"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter SPI of sem3 "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_sem4"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter SPI of sem4 "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_sem5"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter SPI of sem5 "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_sem6"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter SPI of sem6 "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_sem7"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter SPI of sem7 "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_sem8"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter SPI of sem8 "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_cpi"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter CPI "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_cgpa"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter CGPA "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+
+                    <EditText
+                        android:id="@+id/data_entry_degree_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_design1"
+                        android:enabled="false"
+                        android:hint="Enter Estimate Passing Year of Degree "
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue"
+                        android:textColorHint="@color/blue" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/submit_academic_info_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/button_design1"
+                    android:text="SUBMIT"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

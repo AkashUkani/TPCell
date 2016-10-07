@@ -12,6 +12,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:orientation="vertical">
@@ -175,13 +176,15 @@
                     android:textColorHint="@color/blue" />
             </LinearLayout>
 
+
             <Button
-                android:id="@+id/submmit1"
+                android:id="@+id/submit_person_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_design1"
                 android:text="SUBMIT"
+                android:layout_marginBottom="20dp"
                 android:textColor="@color/blue"
                 android:textSize="20sp" />
         </LinearLayout>

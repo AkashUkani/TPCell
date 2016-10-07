@@ -26,9 +26,9 @@
                 android:icon="@drawable/helpicon"
                 android:title="Help" />
             <item
-                android:id="@+id/settings"
+                android:id="@+id/logout"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="Setting" />
+                android:title="Log Out" />
         </menu>
     </item>
 

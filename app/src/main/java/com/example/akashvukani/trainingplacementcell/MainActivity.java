@@ -93,7 +93,8 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.help) {
 
-        } else if (id == R.id.settings) {
+        } else if (id == R.id.logout) {
+
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -13,6 +13,11 @@
 
     </style>
 
+    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/blue</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
     <style name="CustomeAppBar" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:textColorPrimary">#ffffff</item>
     </style>

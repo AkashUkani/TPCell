@@ -41,7 +41,7 @@ public class Personal_Info_Fragment extends Fragment {
     private EditText BirthDate;
 
     private Button submit;
-    final String url="http://10.10.10.109:8000/test";
+    final String url="http://192.168.43.98:8000/test";
 
 
     public Personal_Info_Fragment() {
@@ -66,7 +66,7 @@ public class Personal_Info_Fragment extends Fragment {
         MiddleName=(EditText)getActivity().findViewById(R.id.data_entry_middle_name);
         BirthDate=(EditText)getActivity().findViewById(R.id.data_entry_birth_date);
 
-        submit=(Button)getActivity().findViewById(R.id.submmit1);
+        submit=(Button)getActivity().findViewById(R.id.submit_person_info);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
