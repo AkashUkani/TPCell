@@ -1,9 +1,12 @@
 package com.example.akashvukani.trainingplacementcell;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -28,10 +31,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
         final SharedPreferences sharedPreferences=getSharedPreferences("forLogin",MODE_PRIVATE);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -95,6 +95,26 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.logout) {
 
+            AlertDialog.Builder builder=new AlertDialog.Builder(this);
+            builder.setMessage("Are you sure ?").setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            final SharedPreferences sharedPreferences=getSharedPreferences("forLogin",MODE_PRIVATE);
+                            sharedPreferences.edit().remove("enrollShared").commit();
+                            Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+                            startActivity(intent);
+                            finish();
+
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    });
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
