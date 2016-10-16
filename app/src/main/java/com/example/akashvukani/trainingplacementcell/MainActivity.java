@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity
                             dialogInterface.cancel();
                         }
                     });
-
+            builder.show();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -1,5 +1,6 @@
 package com.example.akashvukani.trainingplacementcell;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -40,12 +41,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         TextView logintext=(TextView)findViewById(R.id.logintext1);
         Typeface custom_font = Typeface.createFromAsset(getAssets(),"Allura-Regular.otf");
         logintext.setTypeface(custom_font);
 
         loginButton=(Button)findViewById(R.id.LoginButton);
-
+        loginButton.setBackgroundResource(R.drawable.button_design_for_login_page);
 
         final SharedPreferences sharedPreferences=getSharedPreferences("forLogin",MODE_PRIVATE);
 
@@ -57,9 +59,21 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+              /*  ProgressDialog pDialog = new ProgressDialog();
+                pDialog.setMessage("Loading products. Please wait...");
+                pDialog.setIndeterminate(false);
+                pDialog.setCancelable(false);
+                pDialog.show();
+                pDialog.cancel();
+                */
+                loginButton.setBackgroundResource(R.drawable.button_design_for_login_page_1);
+                loginButton.setText("Please Wait....");
                 final String Enroll=enroll.getText().toString();
                 final String Pass=pass.getText().toString();
-
+                /*SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("enrollShared",Enroll);
+                editor.commit();
+                onLogin();*/
 
                 JSONObject jsonBody=new JSONObject();
                 try {
@@ -68,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
 
                 JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST, url, jsonBody,
                         new Response.Listener<JSONObject>() {
@@ -83,9 +98,12 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor=sharedPreferences.edit();
                                     editor.putString("enrollShared",Enroll);
                                     editor.commit();
+
                                     onLogin();
                                 }
                                 else{
+                                    loginButton.setBackgroundResource(R.drawable.button_design_for_login_page);
+                                    loginButton.setText("LOGIN");
                                     enroll.setError("Enrollment and Password don't match. Make sure you enter right password.");
                                 }
                             }
@@ -99,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                 );
                 RequestQueue requestQueue= Volley.newRequestQueue(getApplication());
                 requestQueue.add(jsonObjectRequest);
+
             }
         });
     }
@@ -122,6 +141,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLogin(){
+        loginButton.setText("LOGIN");
         Intent intent=new Intent(LoginActivity.this,MainActivity.class);
         startActivity(intent);
         finish();

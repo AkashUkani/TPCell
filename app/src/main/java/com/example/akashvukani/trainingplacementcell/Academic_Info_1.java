@@ -1,7 +1,11 @@
 package com.example.akashvukani.trainingplacementcell;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -103,6 +107,13 @@ public class Academic_Info_1 extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                submit.setBackgroundResource(R.drawable.button_design2);
+
+
+
+
+
+                submit.setBackgroundResource(R.drawable.button_design1);
             }
         });
     }

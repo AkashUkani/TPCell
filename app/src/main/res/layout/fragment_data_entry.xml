@@ -7,14 +7,16 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/data_entry_tablayout"
-            android:background="@color/colorPrimary1"
-            app:tabTextColor="@color/textcolor"
+            android:background="@color/colorPrimary"
+            app:tabTextColor="@color/TextColorNotSelectedTextInTablayout"
+            app:tabSelectedTextColor="@color/textcolor"
             android:textAlignment="center">
 
         </android.support.design.widget.TabLayout>

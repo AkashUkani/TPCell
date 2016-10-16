@@ -16,11 +16,11 @@
             android:layout_marginRight="30dp">
 
             <TextView
-                android:id="@+id/messageForDegreeInfo"
+                android:id="@+id/messageForDegreeInfo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="You haven't yet filled Academic Info1. So first fill data of section 1 than you will be allowed to fill this section."
+                android:text="Message Here"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp" />
         </RelativeLayout>
@@ -33,9 +33,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_margin="30dp"
                 android:orientation="vertical">
 
                 <LinearLayout

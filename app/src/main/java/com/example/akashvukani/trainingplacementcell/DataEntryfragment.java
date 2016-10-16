@@ -58,7 +58,6 @@ public class DataEntryfragment extends Fragment {
                 return new Academic_Info_1();
             }else
                 return new Academic_Info_2();
-
         }
 
         @Override

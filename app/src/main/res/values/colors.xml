@@ -6,6 +6,9 @@
     <color name="background">#9FA8DA</color>
     <color name="textcolor">#ffffff</color>
     <color name="colorPrimary1">#6a78c6</color>
-
+    <color name="TextColorNotSelectedTextInTablayout">#9eabf2</color>
     <color name="blue">#125688</color>
+    <color name="blue1">#061D2D</color>
+    <color name="blue2">#0C395B</color>
+
 </resources>

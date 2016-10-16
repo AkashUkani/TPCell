@@ -25,6 +25,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter First Number"
+                android:maxLines="1"
                 android:paddingLeft="10dp"
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
@@ -33,6 +34,7 @@
                 android:id="@+id/data_entry_last_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:maxLines="1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_design1"
@@ -47,6 +49,7 @@
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+                android:maxLines="1"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter Middle Name"
                 android:paddingLeft="10dp"
@@ -62,6 +65,7 @@
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter Birth date"
                 android:inputType="date"
+                android:maxLines="1"
                 android:paddingLeft="10dp"
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
@@ -76,6 +80,7 @@
                 android:hint="Enter Email"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
+                android:maxLines="1"
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
 
@@ -89,6 +94,21 @@
                 android:hint="Enter Contact No"
                 android:inputType="number"
                 android:maxLength="10"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue" />
+
+            <EditText
+                android:id="@+id/data_entry_cast"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_design1"
+                android:hint="Enter Your cast"
+                android:maxLines="1"
+                android:maxLength="6"
                 android:paddingLeft="10dp"
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
@@ -123,6 +143,7 @@
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter House No/Name"
                     android:paddingLeft="10dp"
+                    android:maxLines="1"
                     android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
 
@@ -135,6 +156,31 @@
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter Street Name"
                     android:paddingLeft="10dp"
+                    android:maxLines="1"
+                    android:textColor="@color/blue"
+                    android:textColorHint="@color/blue" />
+                <EditText
+                    android:id="@+id/data_entry_landmark"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_design1"
+                    android:hint="Enter Landmark"
+                    android:paddingLeft="10dp"
+                    android:maxLines="1"
+                    android:textColor="@color/blue"
+                    android:textColorHint="@color/blue" />
+                <EditText
+                    android:id="@+id/data_entry_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_design1"
+                    android:hint="Enter Area"
+                    android:paddingLeft="10dp"
+                    android:maxLines="1"
                     android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
 
@@ -146,6 +192,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter city"
+                    android:maxLines="1"
                     android:paddingLeft="10dp"
                     android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
@@ -158,6 +205,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter state"
+                    android:maxLines="1"
                     android:paddingLeft="10dp"
                     android:textColorHint="@color/blue" />
 
@@ -170,6 +218,7 @@
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter Pin Code"
                     android:inputType="number"
+                    android:maxLines="1"
                     android:maxLength="6"
                     android:paddingLeft="10dp"
                     android:textColor="@color/blue"
