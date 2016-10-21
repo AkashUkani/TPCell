@@ -6,15 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -27,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         final SharedPreferences sharedPreferences=getSharedPreferences("forLogin",MODE_PRIVATE);
 
         final String username=sharedPreferences.getString("enrollShared","");
-        //editor.putString("enrollShared",Enroll);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

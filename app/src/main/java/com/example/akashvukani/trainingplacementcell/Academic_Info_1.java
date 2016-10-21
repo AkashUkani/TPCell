@@ -38,11 +38,11 @@ public class Academic_Info_1 extends Fragment {
     public EditText marks_12,passing_year_12;
 
     public CheckBox check_d2d;
-    public EditText d2d_sem1,d2d_sem2,d2d_sem3,d2d_sem4,d2d_sem5,d2d_sem6;
+    public EditText d2d_sem1,d2d_sem2,d2d_sem3,d2d_sem4,d2d_sem5,d2d_sem6,d2d_year,d2d_cpi;
 
     public Button submit;
 
-    final String url="http://10.10.10.109:8000/login";
+    final String url=config.url+"/academics1";
 
     public Academic_Info_1() {
     }
@@ -80,7 +80,9 @@ public class Academic_Info_1 extends Fragment {
                 }
                 else{
                     marks_12.setEnabled(false);
+                    marks_12.setText("");
                     passing_year_12.setEnabled(false);
+                    passing_year_12.setText("");
                 }
             }
         });
@@ -92,6 +94,8 @@ public class Academic_Info_1 extends Fragment {
         d2d_sem4 = (EditText)getActivity().findViewById(R.id.data_entry_d2d_sem4);
         d2d_sem5 = (EditText)getActivity().findViewById(R.id.data_entry_d2d_sem5);
         d2d_sem6 = (EditText)getActivity().findViewById(R.id.data_entry_d2d_sem6);
+        d2d_cpi = (EditText)getActivity().findViewById(R.id.data_entry_d2d_cpi);
+        d2d_year = (EditText)getActivity().findViewById(R.id.data_entry_diploma_year);
 
         submit= (Button)getActivity().findViewById(R.id.submit_academic_info_1);
 
@@ -131,6 +135,12 @@ public class Academic_Info_1 extends Fragment {
                 String d2dsem6 = sharedPreferences.getString("d2d_sem6","");
                 d2d_sem6.setText(d2dsem6);
                 d2d_sem6.setEnabled(false);
+                String d2dcpi = sharedPreferences.getString("d2d_cpi","");
+                d2d_cpi.setText(d2dcpi);
+                d2d_cpi.setEnabled(false);
+                String d2dyear = sharedPreferences.getString("d2d_year","");
+                d2d_year.setText(d2dyear);
+                d2d_year.setEnabled(false);
             }
             submit.setEnabled(false);
         }
@@ -145,6 +155,8 @@ public class Academic_Info_1 extends Fragment {
                     d2d_sem4.setEnabled(true);
                     d2d_sem5.setEnabled(true);
                     d2d_sem6.setEnabled(true);
+                    d2d_cpi.setEnabled(true);
+                    d2d_year.setEnabled(true);
                 }
                 else{
                     d2d_sem1.setEnabled(false);
@@ -153,6 +165,16 @@ public class Academic_Info_1 extends Fragment {
                     d2d_sem4.setEnabled(false);
                     d2d_sem5.setEnabled(false);
                     d2d_sem6.setEnabled(false);
+                    d2d_cpi.setEnabled(false);
+                    d2d_year.setEnabled(false);
+                    d2d_sem1.setText("");
+                    d2d_sem2.setText("");
+                    d2d_sem3.setText("");
+                    d2d_sem4.setText("");
+                    d2d_sem5.setText("");
+                    d2d_sem6.setText("");
+                    d2d_cpi.setText("");
+                    d2d_year.setText("");
                 }
             }
         });
@@ -163,18 +185,29 @@ public class Academic_Info_1 extends Fragment {
             public void onClick(View view) {
                 submit.setBackgroundResource(R.drawable.button_design2);
                 submit.setText("Please Wait....");
-                String ten_marks = marks_10.getText().toString();
-                String ten_year = passing_year_10.getText().toString();
-                String twelve_marks = marks_12.getText().toString();
-                String twelve_year = passing_year_12.getText().toString();
-                String d2d = null;
+                final String ten_marks = marks_10.getText().toString();
+                final String ten_year = passing_year_10.getText().toString();
+                final String twelve_marks ;
+                final String twelve_year;
+                String twelve = "0";
+                if(check_12.isChecked()){
+                    twelve="1";
+                    twelve_marks = marks_12.getText().toString();
+                    twelve_year = passing_year_12.getText().toString();
+                }else {
+                    twelve_marks = null;
+                    twelve_year = null;
+                }
 
-                String d2dsem1 = null;
-                String d2dsem2 = null;
-                String d2dsem3 = null;
-                String d2dsem4 = null;
-                String d2dsem5 = null;
-                String d2dsem6 = null;
+                final String d2d;
+                final String d2dsem1;
+                final String d2dsem2;
+                final String d2dsem3;
+                final String d2dsem4;
+                final String d2dsem5;
+                final String d2dsem6;
+                final String d2dyear;
+                final String d2dcpi;
                 if(check_d2d.isChecked()){
                     d2d="1";
                     d2dsem1 = d2d_sem1.getText().toString();
@@ -183,15 +216,27 @@ public class Academic_Info_1 extends Fragment {
                     d2dsem4 = d2d_sem4.getText().toString();
                     d2dsem5 = d2d_sem5.getText().toString();
                     d2dsem6 = d2d_sem6.getText().toString();
+                    d2dcpi = d2d_cpi.getText().toString();
+                    d2dyear = d2d_year.getText().toString();
+                }else{
+                    d2d = "0";
+                    d2dsem1 = null;
+                    d2dsem2 = null;
+                    d2dsem3 = null;
+                    d2dsem4 = null;
+                    d2dsem5 = null;
+                    d2dsem6 = null;
+                    d2dcpi = null;
+                    d2dyear = null;
                 }
 
                 if(ten_marks.equals("")) {
                     marks_10.setError("Please Enter marks of 10 standard");
                 } else if(ten_year.equals("")) {
                     passing_year_10.setError("Please Enter passing year of 10 standard");
-                } else if(twelve_marks.equals("")) {
+                } else if(twelve_marks.equals("") && twelve.equals("1")) {
                     marks_12.setError("Please Enter marks of 12 standard");
-                } else if(twelve_year.equals("")) {
+                } else if(twelve_year.equals("") && twelve.equals("1")) {
                     passing_year_12.setError("Please Enter passing year of 12 standard");
                 }
                 else if(d2d.equals("1") && d2dsem1.equals("")) {
@@ -210,17 +255,23 @@ public class Academic_Info_1 extends Fragment {
                 else {
                     JSONObject jsonObject = new JSONObject();
                     try {
+                        String enroll = sharedPreferences.getString("enrollShared","");
+                        jsonObject.put("enrollment",enroll);
                         jsonObject.put("10_marks", ten_marks);
                         jsonObject.put("10_year", ten_year);
                         jsonObject.put("12_marks", twelve_marks);
                         jsonObject.put("12_year", twelve_year);
                         jsonObject.put("d2d",d2d);
-                        jsonObject.put("d2d_sem1",d2dsem1);
-                        jsonObject.put("d2d_sem2",d2dsem2);
-                        jsonObject.put("d2d_sem3",d2dsem3);
-                        jsonObject.put("d2d_sem4",d2dsem4);
-                        jsonObject.put("d2d_sem5",d2dsem5);
-                        jsonObject.put("d2d_sem6",d2dsem6);
+                        if(d2d.equals("1")){
+                            jsonObject.put("d2d_sem1",d2dsem1);
+                            jsonObject.put("d2d_sem2",d2dsem2);
+                            jsonObject.put("d2d_sem3",d2dsem3);
+                            jsonObject.put("d2d_sem4",d2dsem4);
+                            jsonObject.put("d2d_sem5",d2dsem5);
+                            jsonObject.put("d2d_sem6",d2dsem6);
+                            jsonObject.put("d2d_cpi",d2dcpi);
+                            jsonObject.put("d2d_year",d2dyear);
+                        }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -230,7 +281,38 @@ public class Academic_Info_1 extends Fragment {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                     submit.setText("SUBMIT");
-                                    Toast.makeText(getActivity(),"Successfully Done",Toast.LENGTH_LONG).show();
+                                    String s = null;
+                                    try {
+                                        s =  response.getString("answer");
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    Toast.makeText(getActivity(),"Successfully Done "+s,Toast.LENGTH_LONG).show();
+                                    if(s.equals("1") && d2d.equals("0")){
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("10_marks",ten_marks);
+                                        editor.putString("10_year",ten_year);
+                                        editor.putString("12_marks",twelve_marks);
+                                        editor.putString("12_year",twelve_year);
+                                        editor.putString("data2","1");
+                                        editor.commit();
+                                    } else if(s.equals("1") && d2d.equals("1")){
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("10_marks",ten_marks);
+                                        editor.putString("10_year",ten_year);
+                                        editor.putString("12_marks",twelve_marks);
+                                        editor.putString("12_year",twelve_year);
+                                        editor.putString("d2d_sem1",d2dsem1);
+                                        editor.putString("d2d_sem2",d2dsem2);
+                                        editor.putString("d2d_sem3",d2dsem3);
+                                        editor.putString("d2d_sem4",d2dsem4);
+                                        editor.putString("d2d_sem5",d2dsem5);
+                                        editor.putString("d2d_sem6",d2dsem6);
+                                        editor.putString("d2d_cpi",d2dcpi);
+                                        editor.putString("d2d_year",d2dyear);
+                                        editor.putString("data2","1");
+                                        editor.commit();
+                                    }
                                 }
                             },
                             new Response.ErrorListener() {

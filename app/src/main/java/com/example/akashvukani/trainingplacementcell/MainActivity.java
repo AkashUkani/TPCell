@@ -85,14 +85,14 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.navigation_fragment,new BlankFragment()).commit();
 
         } else if (id == R.id.notice_board) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.navigation_fragment,new BlankFragment()).commit();
         } else if (id == R.id.data_entry) {
             getSupportFragmentManager().beginTransaction().replace(R.id.navigation_fragment,new DataEntryfragment()).commit();
 
         } else if (id == R.id.discussion_center) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.navigation_fragment,new BlankFragment()).commit();
         } else if (id == R.id.help) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.navigation_fragment,new BlankFragment()).commit();
         } else if (id == R.id.logout) {
 
             AlertDialog.Builder builder=new AlertDialog.Builder(this);
@@ -103,6 +103,44 @@ public class MainActivity extends AppCompatActivity
 
                             final SharedPreferences sharedPreferences=getSharedPreferences("forLogin",MODE_PRIVATE);
                             sharedPreferences.edit().remove("enrollShared").commit();
+                            sharedPreferences.edit().remove("first_name").commit();
+                            sharedPreferences.edit().remove("last_name").commit();
+                            sharedPreferences.edit().remove("middle_name").commit();
+                            sharedPreferences.edit().remove("birth_date").commit();
+                            sharedPreferences.edit().remove("email").commit();
+                            sharedPreferences.edit().remove("cast").commit();
+                            sharedPreferences.edit().remove("contact_no").commit();
+                            sharedPreferences.edit().remove("house_no").commit();
+                            sharedPreferences.edit().remove("street_name").commit();
+                            sharedPreferences.edit().remove("landmark").commit();
+                            sharedPreferences.edit().remove("area").commit();
+                            sharedPreferences.edit().remove("city").commit();
+                            sharedPreferences.edit().remove("pin_code").commit();
+                            sharedPreferences.edit().remove("state").commit();
+                            sharedPreferences.edit().remove("data1").commit();
+
+                            sharedPreferences.edit().remove("10_marks").commit();
+                            sharedPreferences.edit().remove("10_year").commit();
+                            sharedPreferences.edit().remove("12_marks").commit();
+                            sharedPreferences.edit().remove("12_year").commit();
+                            sharedPreferences.edit().remove("data2").commit();
+                            sharedPreferences.edit().remove("d2d_sem1").commit();
+                            sharedPreferences.edit().remove("d2d_sem2").commit();
+                            sharedPreferences.edit().remove("d2d_sem3").commit();
+                            sharedPreferences.edit().remove("d2d_sem4").commit();
+                            sharedPreferences.edit().remove("d2d_sem5").commit();
+                            sharedPreferences.edit().remove("d2d_sem6").commit();
+
+                            sharedPreferences.edit().remove("data3").commit();
+                            sharedPreferences.edit().remove("degree_sem1").commit();
+                            sharedPreferences.edit().remove("degree_sem2").commit();
+                            sharedPreferences.edit().remove("degree_sem3").commit();
+                            sharedPreferences.edit().remove("degree_sem4").commit();
+                            sharedPreferences.edit().remove("degree_sem5").commit();
+                            sharedPreferences.edit().remove("degree_sem6").commit();
+                            sharedPreferences.edit().remove("degree_sem7").commit();
+                            sharedPreferences.edit().remove("degree_sem8").commit();
+
                             Intent intent=new Intent(MainActivity.this,LoginActivity.class);
                             startActivity(intent);
                             finish();

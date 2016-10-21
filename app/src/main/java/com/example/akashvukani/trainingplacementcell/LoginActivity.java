@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText enroll;
     private EditText pass;
 
-    final String url="http://192.168.43.98:8000/login";
+    final String url=config.url+"/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,14 +67,15 @@ public class LoginActivity extends AppCompatActivity {
                 pDialog.show();
                 pDialog.cancel();
                 */
+                Log.e("hello","Hello1");
                 loginButton.setBackgroundResource(R.drawable.button_design_for_login_page_1);
                 loginButton.setText("Please Wait....");
                 final String Enroll=enroll.getText().toString();
                 final String Pass=pass.getText().toString();
-                /*SharedPreferences.Editor editor=sharedPreferences.edit();
+               /* SharedPreferences.Editor editor=sharedPreferences.edit();
                 editor.putString("enrollShared",Enroll);
                 editor.commit();
-                onLogin();*/
+                onLogin(); */
 
                 JSONObject jsonBody=new JSONObject();
                 try {
@@ -82,11 +84,12 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
+                Log.e("hello","Hello2");
                 JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST, url, jsonBody,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
+                                Log.e("hello","Hello3");
                                 String check="";
                                 try {
                                     check=response.getString("success");
@@ -96,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if(check.equals("1")){
                                     SharedPreferences.Editor editor=sharedPreferences.edit();
                                     editor.putString("enrollShared",Enroll);
-                                    String n = null;
+                                    /*String n = null;
                                     String d2d = null;
                                     try {
                                         n=response.getString("part");
@@ -104,6 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
+
+
 
                                     if(n.equals("3")){
                                         editor.putString("data3","1");
@@ -182,7 +187,7 @@ public class LoginActivity extends AppCompatActivity {
                                             JSONObject address = response.getJSONObject("address");
 
                                             final String house_no = address.getString("house_no");;
-                                            final String street_no = address.getString("street_no");;
+                                            final String street_name = address.getString("street_name");;
                                             final String landmark = address.getString("landmark");;
                                             final String area = address.getString("area");;
                                             final String city = address.getString("city");;
@@ -209,7 +214,7 @@ public class LoginActivity extends AppCompatActivity {
                                         }
 
                                     }
-
+                                    */
                                     editor.commit();
 
                                     onLogin();
@@ -228,9 +233,10 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                 );
+                Log.e("hello","Hello4");
                 RequestQueue requestQueue= Volley.newRequestQueue(getApplication());
                 requestQueue.add(jsonObjectRequest);
-
+                Log.e("hello","Hello5");
             }
         });
     }
@@ -260,4 +266,12 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    public void academic_info_2_data(){
+    }
+    public void academic_info_1_data(){
+
+    }
+    public void personal_info_data(){
+
+    }
 }

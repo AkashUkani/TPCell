@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -54,8 +55,11 @@ public class Personal_Info_Fragment extends Fragment {
     private EditText Landmark;
     private Button submit;
 
+    private TextView firstname_msg, lastname_msg, middlename_msg, birthdate_msg,
+            email_msg, contactno_msg, cast_msg, houseno_msg, streetname_msg, landmark_msg,
+            area_msg, city_msg, state_msg, pincode_msg;
 
-    final String url="http://192.168.43.98:8000/personal";
+    final String url=config.url+"/personal";
 
     public Personal_Info_Fragment() {
         // Required empty public constructor
@@ -92,10 +96,62 @@ public class Personal_Info_Fragment extends Fragment {
 
         submit=(Button)getActivity().findViewById(R.id.submit_person_info);
 
+        final String data=sharedPreferences.getString("data1","");
+
+        if(data.equals("1")){
+            final String firstname = sharedPreferences.getString("first_name","");
+            FirstName.setText(firstname);
+            FirstName.setEnabled(false);
+            final String lastname = sharedPreferences.getString("last_name","");
+            LastName.setText(lastname);
+            LastName.setEnabled(false);
+            final String middlename = sharedPreferences.getString("middle_name","");
+            MiddleName.setText(middlename);
+            MiddleName.setEnabled(false);
+            final String birthdate = sharedPreferences.getString("birth_date","");
+            BirthDate.setText(birthdate);
+            BirthDate.setEnabled(false);
+            final String email = sharedPreferences.getString("email","");
+            Email.setText(email);
+            Email.setEnabled(false);
+            final String cast = sharedPreferences.getString("cast","");
+            Cast.setText(cast);
+            Cast.setEnabled(false);
+
+            final String contact_no = sharedPreferences.getString("contact_no","");
+            Contact_No.setText(contact_no);
+            Contact_No.setEnabled(false);
+            final String house_no = sharedPreferences.getString("house_no","");
+            House_No.setText(house_no);
+            House_No.setEnabled(false);
+            final String street_no = sharedPreferences.getString("street_name","");
+            Street_Name.setText(street_no);
+            Street_Name.setEnabled(false);
+            final String landmark = sharedPreferences.getString("landmark","");
+            Landmark.setEnabled(false);
+            Landmark.setText(landmark);
+            final String area = sharedPreferences.getString("area","");
+            Area.setText(area);
+            Area.setEnabled(false);
+
+            final String city = sharedPreferences.getString("city","");
+            City.setText(city);
+            City.setEnabled(false);
+            final String pin_code = sharedPreferences.getString("pin_code","");
+            Pin_Code.setText(pin_code);
+            Pin_Code.setEnabled(false);
+            final String state = sharedPreferences.getString("state","");
+            State.setText(state);
+            State.setEnabled(false);
+
+            submit.setEnabled(false);
+        }
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 submit.setBackgroundResource(R.drawable.button_design2);
+
                 final String firstname = FirstName.getText().toString();
                 final String lastname = LastName.getText().toString();
                 final String middlename = MiddleName.getText().toString();
@@ -105,7 +161,7 @@ public class Personal_Info_Fragment extends Fragment {
 
                 final String contact_no = Contact_No.getText().toString();
                 final String house_no = House_No.getText().toString();
-                final String street_no = Street_Name.getText().toString();
+                final String street_name = Street_Name.getText().toString();
                 final String landmark = Landmark.getText().toString();
                 final String area = Area.getText().toString();
 
@@ -129,7 +185,7 @@ public class Personal_Info_Fragment extends Fragment {
                     Cast.setError("Please Enter your cast");
                 }else if(house_no.equals("")){
                     House_No.setError("Please Enter your Contact no");;
-                }else if(street_no.equals("")){
+                }else if(street_name.equals("")){
                     Street_Name.setError("Please Enter your Contact no");
                 }else if(area.equals("")){
                     Area.setError("Please Enter Area");
@@ -156,7 +212,7 @@ public class Personal_Info_Fragment extends Fragment {
                         jsonbody.put("personal",jsonbody1);
 
                         jsonbody2.put("house_no", house_no);
-                        jsonbody2.put("street_no", street_no);
+                        jsonbody2.put("street_name", street_name);
                         jsonbody2.put("landmark", landmark);
                         jsonbody2.put("area", area);
                         jsonbody2.put("city", city);
@@ -176,6 +232,28 @@ public class Personal_Info_Fragment extends Fragment {
                                     try {
                                         String s = response.getString("answer");
                                         Toast.makeText(getContext(), s, Toast.LENGTH_LONG).show();
+                                        if(s.equals("1")) {
+                                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                                            editor.putString("first_name", firstname);
+                                            editor.putString("last_name", lastname);
+                                            editor.putString("middle_name", middlename);
+                                            editor.putString("birth_date", birthdate);
+                                            editor.putString("email", email);
+                                            editor.putString("cast", cast);
+                                            editor.putString("contact_no", contact_no);
+                                            editor.putString("house_no", house_no);
+                                            editor.putString("street_name", street_name);
+                                            editor.putString("landmark", landmark);
+                                            editor.putString("area", area);
+                                            editor.putString("city", city);
+                                            editor.putString("pin_code", pin_code);
+                                            editor.putString("state", state);
+                                            editor.putString("data1", "1");
+                                            editor.commit();
+                                        } else {
+                                            Toast.makeText(getContext(), s, Toast.LENGTH_LONG ).show();
+                                        }
+
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }

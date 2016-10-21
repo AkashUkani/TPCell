@@ -16,13 +16,19 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:id="@+id/first_name_msg"
+                android:textColor="@color/blue"/>
 
             <EditText
                 android:id="@+id/data_entry_first_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter First Number"
                 android:maxLines="1"
@@ -30,38 +36,56 @@
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
 
+            <TextView
+                android:id="@+id/last_name_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/blue"/>
             <EditText
                 android:id="@+id/data_entry_last_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:maxLines="1"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter Last Name"
                 android:paddingLeft="10dp"
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/middle_name_msg"
+                android:textSize="20sp"
+                android:textColor="@color/blue"/>
             <EditText
                 android:id="@+id/data_entry_middle_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:maxLines="1"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter Middle Name"
                 android:paddingLeft="10dp"
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/birth_date_msg"
+                android:textSize="20sp"
+                android:textColor="@color/blue"/>
 
             <EditText
                 android:id="@+id/data_entry_birth_date"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter Birth date"
                 android:inputType="date"
@@ -70,12 +94,18 @@
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:id="@+id/email_msg"
+                android:textColor="@color/blue"/>
             <EditText
                 android:id="@+id/data_entry_email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter Email"
                 android:inputType="textEmailAddress"
@@ -84,12 +114,18 @@
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:id="@+id/contact_no_msg"
+                android:textColor="@color/blue"/>
             <EditText
                 android:id="@+id/data_entry_contact_no"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter Contact No"
                 android:inputType="number"
@@ -99,12 +135,18 @@
                 android:textColor="@color/blue"
                 android:textColorHint="@color/blue" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/cast_msg"
+                android:textSize="20sp"
+                android:textColor="@color/blue"/>
             <EditText
                 android:id="@+id/data_entry_cast"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_design1"
                 android:hint="Enter Your cast"
                 android:maxLines="1"
@@ -134,12 +176,18 @@
                         android:textSize="20sp" />
                 </RelativeLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/house_no_msg"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"/>
                 <EditText
                     android:id="@+id/data_entry_house_no"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter House No/Name"
                     android:paddingLeft="10dp"
@@ -147,36 +195,54 @@
                     android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/street_name_msg"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"/>
                 <EditText
                     android:id="@+id/data_entry_street_name"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter Street Name"
                     android:paddingLeft="10dp"
                     android:maxLines="1"
                     android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/land_mark_msg"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"/>
                 <EditText
                     android:id="@+id/data_entry_landmark"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter Landmark"
                     android:paddingLeft="10dp"
                     android:maxLines="1"
                     android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/area_msg"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"/>
                 <EditText
                     android:id="@+id/data_entry_area"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter Area"
                     android:paddingLeft="10dp"
@@ -184,12 +250,18 @@
                     android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/city_msg"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"/>
                 <EditText
                     android:id="@+id/data_entry_city"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter city"
                     android:maxLines="1"
@@ -197,24 +269,37 @@
                     android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/state_msg"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"/>
                 <EditText
                     android:id="@+id/data_entry_state"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter state"
                     android:maxLines="1"
                     android:paddingLeft="10dp"
+                    android:textColor="@color/blue"
                     android:textColorHint="@color/blue" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/pin_code_msg"
+                    android:textSize="20sp"
+                    android:textColor="@color/blue"/>
                 <EditText
                     android:id="@+id/data_entry_pin_code"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_design1"
                     android:hint="Enter Pin Code"
                     android:inputType="number"

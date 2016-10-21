@@ -2,10 +2,6 @@ package com.example.akashvukani.trainingplacementcell;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -31,13 +27,12 @@ import org.w3c.dom.Text;
 
 
 public class Academic_Info_2 extends Fragment {
-
     public TextView message;
 
     public EditText degree_sem1,degree_sem2,degree_sem3,degree_sem4,degree_sem5,degree_sem6,degree_sem7,degree_sem8;
     public Button submit;
 
-    final String url="http://192.168.43.98:8000/login";
+    final String url=config.url+"/academics2";
 
     public Academic_Info_2() {
         // Required empty public constructor
@@ -75,9 +70,9 @@ public class Academic_Info_2 extends Fragment {
 
         final SharedPreferences sharedPreferences=getActivity().getSharedPreferences("forLogin",Context.MODE_PRIVATE);
 
-        String data=sharedPreferences.getString("data3","");
+        String data=sharedPreferences.getString("data3","0");
         final String d2d = sharedPreferences.getString("d2d","");
-        String data_of_2 = sharedPreferences.getString("data2","");
+        String data_of_2 = sharedPreferences.getString("data2","0");
         if(data.equals("1")){
             message.setText("You have already filled this data");
             String degreesem3 = sharedPreferences.getString("degree_sem3","");
@@ -123,8 +118,8 @@ public class Academic_Info_2 extends Fragment {
             degree_sem8.setEnabled(true);
         }else if(d2d.equals("1")){
             message.setText("You have done Diploma. Right ? if not than please filled again Academic info 1");
-            degree_sem1.setHint("It's not for you");
-            degree_sem2.setHint("It's not for you");
+            degree_sem1.setHint("It's Degree sem 1 marks, thus It's not for you");
+            degree_sem2.setHint("It's Degree sem 2 marks, thus It's not for you");
             degree_sem1.setEnabled(false);
             degree_sem2.setEnabled(false);
             degree_sem3.setEnabled(true);
@@ -151,14 +146,14 @@ public class Academic_Info_2 extends Fragment {
             public void onClick(View view) {
                 submit.setBackgroundResource(R.drawable.button_design2);
                 submit.setText("Please Wait....");
-                String degreesem1 = degree_sem1.getText().toString();
-                String degreesem2 = degree_sem2.getText().toString();
-                String degreesem3 = degree_sem3.getText().toString();
-                String degreesem4 = degree_sem4.getText().toString();
-                String degreesem5 = degree_sem5.getText().toString();
-                String degreesem6 = degree_sem6.getText().toString();
-                String degreesem7 = degree_sem7.getText().toString();
-                String degreesem8 = degree_sem8.getText().toString();
+                final String degreesem1 = degree_sem1.getText().toString();
+                final String degreesem2 = degree_sem2.getText().toString();
+                final String degreesem3 = degree_sem3.getText().toString();
+                final String degreesem4 = degree_sem4.getText().toString();
+                final String degreesem5 = degree_sem5.getText().toString();
+                final String degreesem6 = degree_sem6.getText().toString();
+                final String degreesem7 = degree_sem7.getText().toString();
+                final String degreesem8 = degree_sem8.getText().toString();
                 if(degreesem3.equals("")){
                     degree_sem3.setError("Please Enter SPI of sem 3");
                 }else if(degreesem4.equals("")){
@@ -202,18 +197,36 @@ public class Academic_Info_2 extends Fragment {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                     submit.setText("SUBMIT");
-                                    Toast.makeText(getActivity(), "Successfully Done", Toast.LENGTH_LONG).show();
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("data3", "1");
-                                    editor.commit();
-                                    degree_sem1.setEnabled(false);
-                                    degree_sem2.setEnabled(false);
-                                    degree_sem3.setEnabled(false);
-                                    degree_sem4.setEnabled(false);
-                                    degree_sem5.setEnabled(false);
-                                    degree_sem6.setEnabled(false);
-                                    degree_sem7.setEnabled(false);
-                                    degree_sem8.setEnabled(false);
+                                    String s = null;
+                                    try {
+                                        s =response.getString("answer");
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    Toast.makeText(getActivity(), "Successfully Done "+s, Toast.LENGTH_LONG).show();
+                                    if(s.equals("1") && d2d.equals("0")){
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("data3", "1");
+                                        editor.putString("degree_sem3",degreesem3);
+                                        editor.putString("degree_sem4",degreesem4);
+                                        editor.putString("degree_sem5",degreesem5);
+                                        editor.putString("degree_sem6",degreesem6);
+                                        editor.putString("degree_sem7",degreesem7);
+                                        editor.putString("degree_sem8",degreesem8);
+                                        editor.commit();
+                                    }else if(s.equals("1") && d2d.equals("0")){
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("data3", "1");
+                                        editor.putString("degree_sem1",degreesem1);
+                                        editor.putString("degree_sem2",degreesem2);
+                                        editor.putString("degree_sem3",degreesem3);
+                                        editor.putString("degree_sem4",degreesem4);
+                                        editor.putString("degree_sem5",degreesem5);
+                                        editor.putString("degree_sem6",degreesem6);
+                                        editor.putString("degree_sem7",degreesem7);
+                                        editor.putString("degree_sem8",degreesem8);
+                                        editor.commit();
+                                    }
                                     submit.setEnabled(false);
                                 }
                             },
