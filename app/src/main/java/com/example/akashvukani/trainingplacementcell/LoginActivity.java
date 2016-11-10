@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.Menu;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,9 +34,12 @@ import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button loginButton;
-    private EditText enroll;
-    private EditText pass;
+    Button loginButton;
+    EditText enroll;
+    EditText pass;
+    ProgressBar progress;
+
+    String enroll_string, pass_string;
 
     final String url=config.url+"/login";
 
@@ -48,7 +54,9 @@ public class LoginActivity extends AppCompatActivity {
         logintext.setTypeface(custom_font);
 
         loginButton=(Button)findViewById(R.id.LoginButton);
-        loginButton.setBackgroundResource(R.drawable.button_design_for_login_page);
+        // loginButton.setBackgroundResource(R.drawable.button_design_for_login_page);
+
+        progress = (ProgressBar) findViewById(R.id.progressBar);
 
         final SharedPreferences sharedPreferences=getSharedPreferences("forLogin",MODE_PRIVATE);
 
@@ -57,25 +65,22 @@ public class LoginActivity extends AppCompatActivity {
         pass.setTypeface(Typeface.DEFAULT);
         pass.setTransformationMethod(new PasswordTransformationMethod());
 
+        /*
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /*  ProgressDialog pDialog = new ProgressDialog();
-                pDialog.setMessage("Loading products. Please wait...");
-                pDialog.setIndeterminate(false);
-                pDialog.setCancelable(false);
-                pDialog.show();
-                pDialog.cancel();
-                */
-                Log.e("hello","Hello1");
-                loginButton.setBackgroundResource(R.drawable.button_design_for_login_page_1);
-                loginButton.setText("Please Wait....");
+                onLogin();
+            }
+        });
+        */
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                progress.setVisibility(View.VISIBLE);
+                loginButton.setText("");
                 final String Enroll=enroll.getText().toString();
                 final String Pass=pass.getText().toString();
-               /* SharedPreferences.Editor editor=sharedPreferences.edit();
-                editor.putString("enrollShared",Enroll);
-                editor.commit();
-                onLogin(); */
 
                 JSONObject jsonBody=new JSONObject();
                 try {
@@ -84,12 +89,10 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("hello","Hello2");
                 JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST, url, jsonBody,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
-                                Log.e("hello","Hello3");
                                 String check="";
                                 try {
                                     check=response.getString("success");
@@ -99,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if(check.equals("1")){
                                     SharedPreferences.Editor editor=sharedPreferences.edit();
                                     editor.putString("enrollShared",Enroll);
-                                    /*String n = null;
+                                    String n = null;
                                     String d2d = null;
                                     try {
                                         n=response.getString("part");
@@ -202,7 +205,7 @@ public class LoginActivity extends AppCompatActivity {
                                             editor.putString("cast",cast);
                                             editor.putString("cotact_no",contact_no);
                                             editor.putString("house_no",house_no);
-                                            editor.putString("street_no",street_no);
+                                            editor.putString("street_no",street_name);
                                             editor.putString("landmark",landmark);
                                             editor.putString("area",area);
                                             editor.putString("city",city);
@@ -214,9 +217,10 @@ public class LoginActivity extends AppCompatActivity {
                                         }
 
                                     }
-                                    */
-                                    editor.commit();
 
+                                    editor.commit();
+                                    progress.setVisibility(View.GONE);
+                                    loginButton.setText("LOGIN");
                                     onLogin();
                                 }
                                 else{
@@ -229,17 +233,66 @@ public class LoginActivity extends AppCompatActivity {
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-
+                                Toast.makeText(getApplicationContext(),error.toString()+" \n Sorry I didn't make it",Toast.LENGTH_LONG).show();
                             }
                         }
                 );
-                Log.e("hello","Hello4");
                 RequestQueue requestQueue= Volley.newRequestQueue(getApplication());
                 requestQueue.add(jsonObjectRequest);
-                Log.e("hello","Hello5");
             }
         });
+
+
     }
+
+
+    /*public class LoginStart extends AsyncTask<JSONObject,JSONObject,JSONObject>{
+
+        @Override
+        protected void onPreExecute() {
+            progress.setVisibility(View.VISIBLE);
+        }
+        @Override
+        protected JSONObject doInBackground(JSONObject... jsonObjects) {
+            JSONObject jsonBody=new JSONObject();
+            try {
+                jsonBody.put("enroll",enroll_string);
+                jsonBody.put("pass",pass_string);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            JSONObject json = new JSONObject();
+                            String check = null, n = null, d2d = null ;
+                            try {
+                                check = response.getString("success");
+                                n = response.getString("part");
+                                d2d = response.getString("d2d");
+                                json.put("success",check);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            return json;
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    });
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+            progress.setVisibility(View.GONE);
+        }
+
+
+    } */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -266,12 +319,4 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    public void academic_info_2_data(){
-    }
-    public void academic_info_1_data(){
-
-    }
-    public void personal_info_data(){
-
-    }
 }

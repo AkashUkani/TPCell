@@ -36,7 +36,7 @@ public class DataEntryfragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         data_entry_viewpager=(ViewPager)getActivity().findViewById(R.id.data_entry_view_pager);
-        data_entry_viewpager.setAdapter(new PagerAdapter(getActivity().getSupportFragmentManager(),tabs));
+        data_entry_viewpager.setAdapter(new PagerAdapter(getChildFragmentManager(),tabs));
 
         data_entry_tablayout=(TabLayout)getActivity().findViewById(R.id.data_entry_tablayout);
         data_entry_tablayout.setupWithViewPager(data_entry_viewpager);

@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.navigation_fragment,new BlankFragment()).commit();
         } else if (id == R.id.data_entry) {
             getSupportFragmentManager().beginTransaction().replace(R.id.navigation_fragment,new DataEntryfragment()).commit();
-
         } else if (id == R.id.discussion_center) {
             getSupportFragmentManager().beginTransaction().replace(R.id.navigation_fragment,new BlankFragment()).commit();
         } else if (id == R.id.help) {
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.logout) {
 
             AlertDialog.Builder builder=new AlertDialog.Builder(this);
-            builder.setMessage("Are you sure ?").setCancelable(false)
+            builder.setMessage("Do you really want to LOG OUT ?").setCancelable(false)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

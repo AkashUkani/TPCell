@@ -7,8 +7,14 @@
     <color name="textcolor">#ffffff</color>
     <color name="colorPrimary1">#6a78c6</color>
     <color name="TextColorNotSelectedTextInTablayout">#9eabf2</color>
-    <color name="blue">#125688</color>
-    <color name="blue1">#061D2D</color>
+    <color name="blue">#5C6BC0</color>
+    <color name="backgroundTintColor">#7986CB</color>
+    <color name="backgroundTintColor1">#495597</color>
+    <color name="blue1">#1a237e</color>
     <color name="blue2">#0C395B</color>
+
+    <color name="color_preloader_center">#fa9ace</color>
+    <color name="color_preloader_end">#fa2f9b</color>
+    <color name="color_preloader_start">#ffffff</color>
 
 </resources>

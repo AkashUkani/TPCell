@@ -14,8 +14,8 @@
     </style>
 
     <style name="MyCheckBox" parent="Theme.AppCompat.Light">
-        <item name="colorControlNormal">@color/blue</item>
-        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlNormal">#1a237e</item>
+        <item name="colorControlActivated">#c51162</item>
     </style>
 
     <style name="CustomeAppBar" parent="ThemeOverlay.AppCompat.Dark">

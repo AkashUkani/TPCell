@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.os.AsyncTaskCompat;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,10 +56,7 @@ public class Personal_Info_Fragment extends Fragment {
     private EditText Area;
     private EditText Landmark;
     private Button submit;
-
-    private TextView firstname_msg, lastname_msg, middlename_msg, birthdate_msg,
-            email_msg, contactno_msg, cast_msg, houseno_msg, streetname_msg, landmark_msg,
-            area_msg, city_msg, state_msg, pincode_msg;
+    private ProgressBar progress;
 
     final String url=config.url+"/personal";
 
@@ -93,7 +92,7 @@ public class Personal_Info_Fragment extends Fragment {
         Cast = (EditText) getActivity().findViewById(R.id.data_entry_cast);
         Area = (EditText) getActivity().findViewById(R.id.data_entry_area);
         Landmark = (EditText) getActivity().findViewById(R.id.data_entry_landmark);
-
+        progress = (ProgressBar) getActivity().findViewById(R.id.progressBar);
         submit=(Button)getActivity().findViewById(R.id.submit_person_info);
 
         final String data=sharedPreferences.getString("data1","");
@@ -151,7 +150,8 @@ public class Personal_Info_Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 submit.setBackgroundResource(R.drawable.button_design2);
-
+                progress.setVisibility(View.VISIBLE);
+                submit.setText("");
                 final String firstname = FirstName.getText().toString();
                 final String lastname = LastName.getText().toString();
                 final String middlename = MiddleName.getText().toString();
@@ -169,34 +169,33 @@ public class Personal_Info_Fragment extends Fragment {
                 final String pin_code = State.getText().toString();
                 final String state = Pin_Code.getText().toString();
 
-                if(firstname.equals("")){
+                if(TextUtils.isEmpty(firstname)){
                     FirstName.setError("Please Enter your First Name");
-                }else if(middlename.equals("")){
+                }else if(TextUtils.isEmpty(middlename)){
                     MiddleName.setError("Please Enter your Middle Name");
-                }else if(lastname.equals("")){
+                }else if(TextUtils.isEmpty(lastname)){
                     LastName.setError("Please Enter your Last Name");
-                }else if(birthdate.equals("")){
+                }else if(TextUtils.isEmpty(birthdate)){
                     BirthDate.setError("Please Enter your Birth Date");
-                }else if(email.equals("")){
+                }else if(TextUtils.isEmpty(email)){
                     Email.setError("Please Enter your Email");
-                }else if(contact_no.equals("")){
+                }else if(TextUtils.isEmpty(contact_no)){
                     Contact_No.setError("Please Enter your Contact no");;
-                }else if(cast.equals("")){
+                }else if(cast.equals(cast)){
                     Cast.setError("Please Enter your cast");
-                }else if(house_no.equals("")){
+                }else if(TextUtils.isEmpty(contact_no)){
                     House_No.setError("Please Enter your Contact no");;
-                }else if(street_name.equals("")){
-                    Street_Name.setError("Please Enter your Contact no");
-                }else if(area.equals("")){
-                    Area.setError("Please Enter Area");
-                }else if(city.equals("")){
-                    City.setError("Please Enter your Contact no");;
-                }else if(pin_code.equals("")){
-                    Pin_Code.setError("Please Enter your Contact no");;
-                }else if(state.equals("")){
+                }else if(TextUtils.isEmpty(house_no)){
+                    Street_Name.setError("Please Enter your House no");
+                }else if(TextUtils.isEmpty(street_name)){
+                    Area.setError("Please Enter Street Name");
+                }else if(TextUtils.isEmpty(city)){
+                    City.setError("Please Enter your City");;
+                }else if(TextUtils.isEmpty(pin_code)){
+                    Pin_Code.setError("Please Enter Pin Code");;
+                }else if(TextUtils.isEmpty(state)){
                     State.setError("Please Enter your Contact no");;
-                }
-                else {
+                }else {
                     JSONObject jsonbody = new JSONObject();
                     JSONObject jsonbody1 = new JSONObject();
                     JSONObject jsonbody2 = new JSONObject();
@@ -249,6 +248,8 @@ public class Personal_Info_Fragment extends Fragment {
                                             editor.putString("pin_code", pin_code);
                                             editor.putString("state", state);
                                             editor.putString("data1", "1");
+                                            progress.setVisibility(View.GONE);
+
                                             editor.commit();
                                         } else {
                                             Toast.makeText(getContext(), s, Toast.LENGTH_LONG ).show();
@@ -269,6 +270,7 @@ public class Personal_Info_Fragment extends Fragment {
                     requestQueue.add(jsonObjectRequest);
                 }
                 submit.setBackgroundResource(R.drawable.button_design1);
+                submit.setText("SUBMIT");
             }
         });
     }

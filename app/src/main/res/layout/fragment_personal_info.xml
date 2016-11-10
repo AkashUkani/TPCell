@@ -16,150 +16,145 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:id="@+id/first_name_msg"
-                android:textColor="@color/blue"/>
 
-            <EditText
-                android:id="@+id/data_entry_first_name"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/edit_text_design1"
+                android:layout_height="wrap_content"
                 android:hint="Enter First Number"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue" />
+                android:textColorHint="#9E9E9E"
+                android:layout_marginTop="10dp">
 
-            <TextView
-                android:id="@+id/last_name_msg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:textColor="@color/blue"/>
-            <EditText
-                android:id="@+id/data_entry_last_name"
+                <EditText
+                    android:id="@+id/data_entry_first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:backgroundTint="@color/backgroundTintColor"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:maxLines="1"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/edit_text_design1"
+                android:layout_height="wrap_content"
                 android:hint="Enter Last Name"
-                android:paddingLeft="10dp"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue" />
+                android:layout_marginTop="5dp"
+                android:textColorHint="#9E9E9E">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:id="@+id/middle_name_msg"
-                android:textSize="20sp"
-                android:textColor="@color/blue"/>
-            <EditText
-                android:id="@+id/data_entry_middle_name"
+                <EditText
+                    android:id="@+id/data_entry_last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:maxLines="1"
+                    android:backgroundTint="@color/backgroundTintColor"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:maxLines="1"
-                android:background="@drawable/edit_text_design1"
+                android:layout_height="wrap_content"
                 android:hint="Enter Middle Name"
-                android:paddingLeft="10dp"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:id="@+id/birth_date_msg"
-                android:textSize="20sp"
-                android:textColor="@color/blue"/>
+                android:layout_marginTop="5dp"
+                android:textColorHint="#9E9E9E">
 
-            <EditText
-                android:id="@+id/data_entry_birth_date"
+                <EditText
+                    android:id="@+id/data_entry_middle_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:maxLines="1"
+                    android:backgroundTint="@color/backgroundTintColor"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/edit_text_design1"
+                android:layout_height="wrap_content"
                 android:hint="Enter Birth date"
-                android:inputType="date"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue" />
+                android:layout_marginTop="5dp"
+                android:textColorHint="#9E9E9E">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:id="@+id/email_msg"
-                android:textColor="@color/blue"/>
-            <EditText
-                android:id="@+id/data_entry_email"
+                <EditText
+                    android:id="@+id/data_entry_birth_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:backgroundTint="@color/backgroundTintColor"
+                    android:inputType="date"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/edit_text_design1"
+                android:layout_height="wrap_content"
                 android:hint="Enter Email"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="10dp"
-                android:maxLines="1"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue" />
+                android:layout_marginTop="5dp"
+                android:textColorHint="#9E9E9E">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:id="@+id/contact_no_msg"
-                android:textColor="@color/blue"/>
-            <EditText
-                android:id="@+id/data_entry_contact_no"
+                <EditText
+                    android:id="@+id/data_entry_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:backgroundTint="@color/backgroundTintColor"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/edit_text_design1"
+                android:layout_height="wrap_content"
                 android:hint="Enter Contact No"
-                android:inputType="number"
-                android:maxLength="10"
-                android:maxLines="1"
-                android:paddingLeft="10dp"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue" />
+                android:layout_marginTop="5dp"
+                android:textColorHint="#9E9E9E">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:id="@+id/cast_msg"
-                android:textSize="20sp"
-                android:textColor="@color/blue"/>
-            <EditText
-                android:id="@+id/data_entry_cast"
+                <EditText
+                    android:id="@+id/data_entry_contact_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:backgroundTint="@color/backgroundTintColor"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/edit_text_design1"
+                android:layout_height="wrap_content"
                 android:hint="Enter Your cast"
-                android:maxLines="1"
-                android:maxLength="6"
-                android:paddingLeft="10dp"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue" />
+                android:layout_marginTop="5dp"
+                android:textColorHint="#9E9E9E">
+
+                <EditText
+                    android:id="@+id/data_entry_cast"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:maxLength="6"
+                    android:backgroundTint="@color/backgroundTintColor"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/blue" />
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/address_layout_design"
+                android:background="#F5F5F5"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -172,155 +167,173 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
                         android:text="Address"
-                        android:textColor="@color/blue"
+                        android:textColor="#1A237E"
                         android:textSize="20sp" />
                 </RelativeLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/house_no_msg"
-                    android:textSize="20sp"
-                    android:textColor="@color/blue"/>
-                <EditText
-                    android:id="@+id/data_entry_house_no"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/edit_text_design1"
-                    android:hint="Enter House No/Name"
-                    android:paddingLeft="10dp"
-                    android:maxLines="1"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
+                    android:layout_height="wrap_content"
+                    android:hint="Enter House/Apartment No"
+                    android:textColorHint="#9E9E9E"
+                    android:layout_marginTop="5dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/street_name_msg"
-                    android:textSize="20sp"
-                    android:textColor="@color/blue"/>
-                <EditText
-                    android:id="@+id/data_entry_street_name"
+                    <EditText
+                        android:id="@+id/data_entry_house_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:maxLines="1"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/edit_text_design1"
+                    android:layout_height="wrap_content"
                     android:hint="Enter Street Name"
-                    android:paddingLeft="10dp"
-                    android:maxLines="1"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/land_mark_msg"
-                    android:textSize="20sp"
-                    android:textColor="@color/blue"/>
-                <EditText
-                    android:id="@+id/data_entry_landmark"
+                    android:textColorHint="#9E9E9E"
+                    android:layout_marginTop="5dp">
+
+                    <EditText
+                        android:id="@+id/data_entry_street_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:maxLines="1"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/edit_text_design1"
+                    android:layout_height="wrap_content"
                     android:hint="Enter Landmark"
-                    android:paddingLeft="10dp"
-                    android:maxLines="1"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/area_msg"
-                    android:textSize="20sp"
-                    android:textColor="@color/blue"/>
-                <EditText
-                    android:id="@+id/data_entry_area"
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="#9E9E9E">
+
+                    <EditText
+                        android:id="@+id/data_entry_landmark"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/edit_text_design1"
+                    android:layout_height="wrap_content"
                     android:hint="Enter Area"
-                    android:paddingLeft="10dp"
-                    android:maxLines="1"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="#9E9E9E">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/city_msg"
-                    android:textSize="20sp"
-                    android:textColor="@color/blue"/>
-                <EditText
-                    android:id="@+id/data_entry_city"
+                    <EditText
+                        android:id="@+id/data_entry_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:maxLines="1"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/edit_text_design1"
+                    android:layout_height="wrap_content"
                     android:hint="Enter city"
-                    android:maxLines="1"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="#9E9E9E">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/state_msg"
-                    android:textSize="20sp"
-                    android:textColor="@color/blue"/>
-                <EditText
-                    android:id="@+id/data_entry_state"
+                    <EditText
+                        android:id="@+id/data_entry_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/edit_text_design1"
+                    android:layout_height="wrap_content"
                     android:hint="Enter state"
-                    android:maxLines="1"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="#9E9E9E">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/pin_code_msg"
-                    android:textSize="20sp"
-                    android:textColor="@color/blue"/>
-                <EditText
-                    android:id="@+id/data_entry_pin_code"
+                    <EditText
+                        android:id="@+id/data_entry_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:maxLines="1"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/edit_text_design1"
+                    android:layout_height="wrap_content"
                     android:hint="Enter Pin Code"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:maxLength="6"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/blue"
-                    android:textColorHint="@color/blue" />
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="#9E9E9E">
+
+                    <EditText
+                        android:id="@+id/data_entry_pin_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
 
-            <Button
-                android:id="@+id/submit_person_info"
+            <RelativeLayout
+                android:id="@+id/layoutForProgressAndButton"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_design1"
-                android:text="SUBMIT"
-                android:layout_marginBottom="20dp"
-                android:textColor="@color/blue"
-                android:textSize="20sp" />
+                android:layout_height="50dp"
+                android:layout_below="@+id/passwordLogin"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleLarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:indeterminateDrawable="@drawable/progress"
+                        android:visibility="gone">
+                    </ProgressBar>
+                </RelativeLayout>
+                <Button
+                    android:id="@+id/submit_person_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_design1"
+                    android:text="SUBMIT"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+
         </LinearLayout>
     </ScrollView>
 </FrameLayout>

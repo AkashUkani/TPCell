@@ -107,7 +107,7 @@ public class Academic_Info_2 extends Fragment {
             }
             submit.setEnabled(false);
         }else if(d2d.equals("0")) {
-            message.setText("You are Degree Student. Right ? if not than please filled again Academic info 1");
+            message.setText("You are Degree Student. Right ? if not than please contact Your TPC to get it right");
             degree_sem1.setEnabled(true);
             degree_sem2.setEnabled(true);
             degree_sem3.setEnabled(true);
@@ -117,7 +117,7 @@ public class Academic_Info_2 extends Fragment {
             degree_sem7.setEnabled(true);
             degree_sem8.setEnabled(true);
         }else if(d2d.equals("1")){
-            message.setText("You have done Diploma. Right ? if not than please filled again Academic info 1");
+            message.setText("You have done Diploma. Right ? if not than please contact your TPC to get it right");
             degree_sem1.setHint("It's Degree sem 1 marks, thus It's not for you");
             degree_sem2.setHint("It's Degree sem 2 marks, thus It's not for you");
             degree_sem1.setEnabled(false);

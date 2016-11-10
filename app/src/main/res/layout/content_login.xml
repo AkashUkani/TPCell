@@ -45,8 +45,6 @@
                     android:textColor="#ffffff"
                     android:textColorHint="#ffffff"/>
 
-
-
                 <EditText
                     android:id="@+id/passwordLogin"
                     android:layout_width="match_parent"
@@ -62,20 +60,37 @@
                     android:textColorHint="#ffffff"
                     android:textColor="#ffffff"/>
 
-
-                <Button
-                    android:id="@+id/LoginButton"
+                <RelativeLayout
+                    android:id="@+id/layoutForProgressAndButton"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_below="@+id/passwordLogin"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/button_design_for_login_page"
-                    android:text="LOGIN"
-                    android:textColor="@color/textcolor"
-                    android:textSize="20sp" />
+                    android:layout_marginTop="15dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyleLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_centerInParent="true"
+                            android:indeterminateDrawable="@drawable/progress"
+                            android:visibility="gone">
+                        </ProgressBar>
+                    </RelativeLayout>
+                    <Button
+                        android:id="@+id/LoginButton"
+                        android:background="@drawable/button_design_for_login_page"
+                        android:text="LOGIN"
+                        android:textColor="@color/textcolor"
+                        android:textSize="20sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

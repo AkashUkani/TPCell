@@ -2,11 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.akashvukani.trainingplacementcell.Personal_Info_Fragment">
+    tools:context="com.example.akashvukani.trainingplacementcell.Academic_Info_1">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -16,15 +16,14 @@
             android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/messageForDegreeInfo2"
+                android:id="@+id/messageForDegreeInfo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Message Here"
+                android:text="Make sure you enter Right Info"
                 android:textColor="#c51162"
                 android:textSize="20sp" />
         </RelativeLayout>
-
 
         <ScrollView
             android:layout_width="match_parent"
@@ -33,49 +32,139 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:orientation="vertical">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Enter 10th marks out of 500"
+                    android:textColorHint="#9E9E9E">
+
+                    <EditText
+                        android:id="@+id/data_entry_10th"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Enter Passing Year of 10th"
+                    android:textColorHint="#9E9E9E">
+
+                    <EditText
+                        android:id="@+id/data_entry_10th_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_centerHorizontal="true"
+                        android:backgroundTint="@color/backgroundTintColor"
+                        android:hint="Enter Passing Year of 10th"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/blue" />
+                </android.support.design.widget.TextInputLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:background="#F5F5F5"
                     android:orientation="vertical">
 
-
-                    <RelativeLayout
+                    <CheckBox
+                        android:id="@+id/data_entry_checkbox_for_12"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="5dp"
-                            android:text="Degree"
-                            android:textColor="#1a237e"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-
+                        android:layout_height="wrap_content"
+                        android:text="Check only if You have passed 12th"
+                        android:textColor="#1a237e"
+                        android:textSize="20dp"
+                        android:theme="@style/MyCheckBox" />
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="Enter SPI of sem1 "
+                        android:hint="Enter 12th marks out of 650"
                         android:textColorHint="#9E9E9E">
 
                         <EditText
-                            android:id="@+id/data_entry_degree_sem1"
+                            android:id="@+id/data_entry_12th"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
                             android:enabled="false"
-                            android:backgroundTint="@color/backgroundTintColor"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/blue" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Enter Passing Year of 12th"
+                        android:textColorHint="#9E9E9E">
+
+                        <EditText
+                            android:id="@+id/data_entry_12th_year"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/blue" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="#F5F5F5"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/data_entry_checkbox_for_d2d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Check only if You have done Diploma"
+                        android:textColor="#1a237e"
+                        android:textSize="20dp"
+                        android:theme="@style/MyCheckBox" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Enter Diploma SPI of sem1 "
+                        android:textColorHint="#9E9E9E">
+
+                        <EditText
+                            android:id="@+id/data_entry_d2d_sem1"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
+                            android:enabled="false"
                             android:inputType="number"
                             android:maxLength="4"
                             android:paddingLeft="10dp"
@@ -86,16 +175,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="Enter SPI of sem2 "
+                        android:hint="Enter Diploma SPI of sem2 "
                         android:textColorHint="#9E9E9E">
 
                         <EditText
-                            android:id="@+id/data_entry_degree_sem2"
+                            android:id="@+id/data_entry_d2d_sem2"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
                             android:enabled="false"
-                            android:backgroundTint="@color/backgroundTintColor"
                             android:inputType="number"
                             android:maxLength="4"
                             android:paddingLeft="10dp"
@@ -106,137 +195,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="Enter SPI of sem3 "
+                        android:hint="Enter Diploma SPI of sem3 "
                         android:textColorHint="#9E9E9E">
 
                         <EditText
-                            android:id="@+id/data_entry_degree_sem3"
+                            android:id="@+id/data_entry_d2d_sem3"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
                             android:enabled="false"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:backgroundTint="@color/backgroundTintColor"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/blue" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:hint="Enter SPI of sem4 "
-                        android:textColorHint="#9E9E9E">
-
-                        <EditText
-                            android:id="@+id/data_entry_degree_sem4"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_centerHorizontal="true"
-                            android:enabled="false"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:backgroundTint="@color/backgroundTintColor"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/blue" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:hint="Enter SPI of sem5 "
-                        android:textColorHint="#9E9E9E">
-
-                        <EditText
-                            android:id="@+id/data_entry_degree_sem5"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_centerHorizontal="true"
-                            android:enabled="false"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:paddingLeft="10dp"
-                            android:backgroundTint="@color/backgroundTintColor"
-                            android:textColor="@color/blue" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:hint="Enter SPI of sem6 "
-                        android:textColorHint="#9E9E9E">
-
-                        <EditText
-                            android:id="@+id/data_entry_degree_sem6"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_centerHorizontal="true"
-                            android:enabled="false"
-                            android:inputType="number"
-                            android:backgroundTint="@color/backgroundTintColor"
-                            android:maxLength="4"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/blue" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:hint="Enter SPI of sem7 "
-                        android:textColorHint="#9E9E9E">
-
-                        <EditText
-                            android:id="@+id/data_entry_degree_sem7"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_centerHorizontal="true"
-                            android:enabled="false"
-                            android:inputType="number"
-                            android:backgroundTint="@color/backgroundTintColor"
-                            android:maxLength="4"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/blue" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:hint="Enter SPI of sem8 "
-                        android:textColorHint="#9E9E9E">
-
-                        <EditText
-                            android:id="@+id/data_entry_degree_sem8"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_centerHorizontal="true"
-                            android:enabled="false"
-                            android:backgroundTint="@color/backgroundTintColor"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/blue"
-                            android:textColorHint="@color/blue" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:hint="Enter CPI "
-                        android:textColorHint="#9E9E9E">
-
-                        <EditText
-                            android:id="@+id/data_entry_degree_cpi"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_centerHorizontal="true"
-                            android:enabled="false"
-                            android:backgroundTint="@color/backgroundTintColor"
                             android:inputType="number"
                             android:maxLength="4"
                             android:paddingLeft="10dp"
@@ -247,26 +215,105 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:hint="Enter CGPA "
+                        android:hint="Enter Diploma SPI of sem4 "
                         android:textColorHint="#9E9E9E">
 
                         <EditText
-                            android:id="@+id/data_entry_degree_cgpa"
+                            android:id="@+id/data_entry_d2d_sem4"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
                             android:enabled="false"
                             android:inputType="number"
                             android:maxLength="4"
-                            android:backgroundTint="@color/backgroundTintColor"
                             android:paddingLeft="10dp"
                             android:textColor="@color/blue" />
                     </android.support.design.widget.TextInputLayout>
 
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Enter Diploma SPI of sem5 "
+                        android:textColorHint="#9E9E9E">
+
+                        <EditText
+                            android:id="@+id/data_entry_d2d_sem5"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/blue" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Enter Diploma SPI of sem6 "
+                        android:textColorHint="#9E9E9E">
+
+                        <EditText
+                            android:id="@+id/data_entry_d2d_sem6"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/blue" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Enter Diploma CPI "
+                        android:textColorHint="#9E9E9E">
+
+                        <EditText
+                            android:id="@+id/data_entry_d2d_cpi"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/blue" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Enter Passing Year of Diploma"
+                        android:textColorHint="#9E9E9E">
+
+                        <EditText
+                            android:id="@+id/data_entry_diploma_year"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:backgroundTint="@color/backgroundTintColor1"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/blue" />
+                    </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/submit_academic_info_2"
+                    android:id="@+id/submit_academic_info_1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"
@@ -275,6 +322,7 @@
                     android:text="SUBMIT"
                     android:textColor="@color/blue"
                     android:textSize="20sp" />
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
