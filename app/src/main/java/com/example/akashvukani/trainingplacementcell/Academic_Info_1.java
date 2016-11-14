@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -41,6 +42,7 @@ public class Academic_Info_1 extends Fragment {
     public EditText d2d_sem1,d2d_sem2,d2d_sem3,d2d_sem4,d2d_sem5,d2d_sem6,d2d_year,d2d_cpi;
 
     public Button submit;
+    private ProgressBar progress;
 
     final String url=config.url+"/academics1";
 
@@ -96,6 +98,7 @@ public class Academic_Info_1 extends Fragment {
         d2d_sem6 = (EditText)getActivity().findViewById(R.id.data_entry_d2d_sem6);
         d2d_cpi = (EditText)getActivity().findViewById(R.id.data_entry_d2d_cpi);
         d2d_year = (EditText)getActivity().findViewById(R.id.data_entry_diploma_year);
+        progress = (ProgressBar) getActivity().findViewById(R.id.progressBar);
 
         submit= (Button)getActivity().findViewById(R.id.submit_academic_info_1);
 
@@ -184,7 +187,8 @@ public class Academic_Info_1 extends Fragment {
             @Override
             public void onClick(View view) {
                 submit.setBackgroundResource(R.drawable.button_design2);
-                submit.setText("Please Wait....");
+                progress.setVisibility(View.VISIBLE);
+                submit.setText("");
                 final String ten_marks = marks_10.getText().toString();
                 final String ten_year = passing_year_10.getText().toString();
                 final String twelve_marks ;
@@ -198,7 +202,6 @@ public class Academic_Info_1 extends Fragment {
                     twelve_marks = null;
                     twelve_year = null;
                 }
-
                 final String d2d;
                 final String d2dsem1;
                 final String d2dsem2;
@@ -229,27 +232,37 @@ public class Academic_Info_1 extends Fragment {
                     d2dcpi = null;
                     d2dyear = null;
                 }
-
+                int flag=0;
                 if(ten_marks.equals("")) {
+                    flag=1;
                     marks_10.setError("Please Enter marks of 10 standard");
                 } else if(ten_year.equals("")) {
+                    flag=1;
                     passing_year_10.setError("Please Enter passing year of 10 standard");
                 } else if(twelve_marks.equals("") && twelve.equals("1")) {
+                    flag=1;
                     marks_12.setError("Please Enter marks of 12 standard");
                 } else if(twelve_year.equals("") && twelve.equals("1")) {
+                    flag=1;
                     passing_year_12.setError("Please Enter passing year of 12 standard");
                 }
                 else if(d2d.equals("1") && d2dsem1.equals("")) {
+                    flag=1;
                     d2d_sem1.setError("Please Enter SPI of Diploma Sem 1");
                 } else if(d2d.equals("1") && d2dsem2.equals("")){
+                    flag=1;
                     d2d_sem2.setError("Please Enter SPI of Diploma Sem 2");
                 } else if(d2d.equals("1") && d2dsem3.equals("")){
+                    flag=1;
                     d2d_sem3.setError("Please Enter SPI of Diploma Sem 3");
                 } else if(d2d.equals("1") && d2dsem4.equals("")){
+                    flag=1;
                     d2d_sem4.setError("Please Enter SPI of Diploma Sem 4");
                 } else if(d2d.equals("1") && d2dsem5.equals("")){
+                    flag=1;
                     d2d_sem5.setError("Please Enter SPI of Diploma Sem 5");
                 } else if(d2d.equals("1") && d2dsem6.equals("")){
+                    flag=1;
                     d2d_sem6.setError("Please Enter SPI of Diploma Sem 6");
                 }
                 else {
@@ -288,6 +301,9 @@ public class Academic_Info_1 extends Fragment {
                                         e.printStackTrace();
                                     }
                                     Toast.makeText(getActivity(),"Successfully Done "+s,Toast.LENGTH_LONG).show();
+                                    progress.setVisibility(View.GONE);
+                                    submit.setText("SUBMIT");
+                                    submit.setBackgroundResource(R.drawable.button_design1);
                                     if(s.equals("1") && d2d.equals("0")){
                                         SharedPreferences.Editor editor = sharedPreferences.edit();
                                         editor.putString("10_marks",ten_marks);
@@ -319,10 +335,17 @@ public class Academic_Info_1 extends Fragment {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
                                     Toast.makeText(getActivity(),error.toString(),Toast.LENGTH_LONG).show();
+                                    progress.setVisibility(View.GONE);
+                                    submit.setText("SUBMIT");
+                                    submit.setBackgroundResource(R.drawable.button_design1);
                                 }
                             });
                     RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
                     requestQueue.add(jsonObjectRequest);
+                }
+                if(flag==1){
+                    progress.setVisibility(View.GONE);
+                    submit.setText("SUBMIT");
                     submit.setBackgroundResource(R.drawable.button_design1);
                 }
             }

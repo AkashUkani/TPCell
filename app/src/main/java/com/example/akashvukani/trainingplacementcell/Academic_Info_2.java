@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class Academic_Info_2 extends Fragment {
 
     public EditText degree_sem1,degree_sem2,degree_sem3,degree_sem4,degree_sem5,degree_sem6,degree_sem7,degree_sem8;
     public Button submit;
+    private ProgressBar progress;
 
     final String url=config.url+"/academics2";
 
@@ -63,6 +65,7 @@ public class Academic_Info_2 extends Fragment {
         degree_sem6 = (EditText) getActivity().findViewById(R.id.data_entry_degree_sem6);
         degree_sem7 = (EditText) getActivity().findViewById(R.id.data_entry_degree_sem7);
         degree_sem8 = (EditText) getActivity().findViewById(R.id.data_entry_degree_sem8);
+        progress = (ProgressBar) getActivity().findViewById(R.id.progressBar);
 
         submit = (Button) getActivity().findViewById(R.id.submit_academic_info_2);
 
@@ -138,6 +141,7 @@ public class Academic_Info_2 extends Fragment {
             degree_sem6.setEnabled(false);
             degree_sem7.setEnabled(false);
             degree_sem8.setEnabled(false);
+            submit.setEnabled(false);
         }
 
 
@@ -145,7 +149,8 @@ public class Academic_Info_2 extends Fragment {
             @Override
             public void onClick(View view) {
                 submit.setBackgroundResource(R.drawable.button_design2);
-                submit.setText("Please Wait....");
+                progress.setVisibility(View.VISIBLE);
+                submit.setText("");
                 final String degreesem1 = degree_sem1.getText().toString();
                 final String degreesem2 = degree_sem2.getText().toString();
                 final String degreesem3 = degree_sem3.getText().toString();
@@ -154,21 +159,30 @@ public class Academic_Info_2 extends Fragment {
                 final String degreesem6 = degree_sem6.getText().toString();
                 final String degreesem7 = degree_sem7.getText().toString();
                 final String degreesem8 = degree_sem8.getText().toString();
+                int flag=0;
                 if(degreesem3.equals("")){
+                    flag=1;
                     degree_sem3.setError("Please Enter SPI of sem 3");
                 }else if(degreesem4.equals("")){
+                    flag=1;
                     degree_sem4.setError("Please Enter SPI of sem 4");
                 }else if(degreesem5.equals("")){
+                    flag=1;
                     degree_sem5.setError("Please Enter SPI of sem 5");
                 }else if(degreesem6.equals("")){
+                    flag=1;
                     degree_sem6.setError("Please Enter SPI of sem 6");
                 }else if(degreesem7.equals("")){
+                    flag=1;
                     degree_sem7.setError("Please Enter SPI of sem 7");
                 }else if(degreesem8.equals("")){
+                    flag=1;
                     degree_sem8.setError("Please Enter SPI of sem 8");
                 }else if(d2d.equals("0") && degreesem1.equals("")){
+                    flag=1;
                     degree_sem1.setError("Please Enter SPI of sem1");
                 }else if(d2d.equals("0") && degreesem2.equals("")){
+                    flag=1;
                     degree_sem2.setError("Please Enter SPI of sem2");
                 }else {
 
@@ -227,17 +241,27 @@ public class Academic_Info_2 extends Fragment {
                                         editor.putString("degree_sem8",degreesem8);
                                         editor.commit();
                                     }
-                                    submit.setEnabled(false);
+                                    progress.setVisibility(View.GONE);
+                                    submit.setText("SUBMIT");
+                                    submit.setBackgroundResource(R.drawable.button_design1);
                                 }
                             },
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
                                     Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
+                                    progress.setVisibility(View.GONE);
+                                    submit.setText("SUBMIT");
+                                    submit.setBackgroundResource(R.drawable.button_design1);
                                 }
                             });
                     RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
                     requestQueue.add(jsonObjectRequest);
+                    submit.setBackgroundResource(R.drawable.button_design1);
+                }
+                if(flag==1){
+                    progress.setVisibility(View.GONE);
+                    submit.setText("SUBMIT");
                     submit.setBackgroundResource(R.drawable.button_design1);
                 }
             }

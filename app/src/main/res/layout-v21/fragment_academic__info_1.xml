@@ -70,7 +70,6 @@
                         android:layout_height="50dp"
                         android:layout_centerHorizontal="true"
                         android:backgroundTint="@color/backgroundTintColor"
-                        android:hint="Enter Passing Year of 10th"
                         android:inputType="number"
                         android:maxLength="4"
                         android:paddingLeft="10dp"
@@ -312,16 +311,35 @@
                     </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/submit_academic_info_1"
+                <RelativeLayout
+                    android:id="@+id/layoutForProgressAndButton"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/button_design1"
-                    android:text="SUBMIT"
-                    android:textColor="@color/blue"
-                    android:textSize="20sp" />
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/passwordLogin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyleLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_centerInParent="true"
+                            android:indeterminateDrawable="@drawable/progress"
+                            android:visibility="gone">
+                        </ProgressBar>
+                    </RelativeLayout>
+                    <Button
+                        android:id="@+id/submit_academic_info_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/button_design1"
+                        android:text="SUBMIT"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp" />
+                </RelativeLayout>
 
             </LinearLayout>
         </ScrollView>

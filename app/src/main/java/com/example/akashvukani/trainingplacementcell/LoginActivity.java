@@ -65,15 +65,15 @@ public class LoginActivity extends AppCompatActivity {
         pass.setTypeface(Typeface.DEFAULT);
         pass.setTransformationMethod(new PasswordTransformationMethod());
 
-        /*
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onLogin();
             }
         });
-        */
 
+        /*
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -227,6 +227,7 @@ public class LoginActivity extends AppCompatActivity {
                                     loginButton.setBackgroundResource(R.drawable.button_design_for_login_page);
                                     loginButton.setText("LOGIN");
                                     enroll.setError("Enrollment and Password don't match. Make sure you enter right password.");
+                                    progress.setVisibility(View.GONE);
                                 }
                             }
                         },
@@ -234,6 +235,8 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 Toast.makeText(getApplicationContext(),error.toString()+" \n Sorry I didn't make it",Toast.LENGTH_LONG).show();
+                                progress.setVisibility(View.GONE);
+                                loginButton.setText("LOGIN");
                             }
                         }
                 );
@@ -241,58 +244,10 @@ public class LoginActivity extends AppCompatActivity {
                 requestQueue.add(jsonObjectRequest);
             }
         });
-
+        */
 
     }
 
-
-    /*public class LoginStart extends AsyncTask<JSONObject,JSONObject,JSONObject>{
-
-        @Override
-        protected void onPreExecute() {
-            progress.setVisibility(View.VISIBLE);
-        }
-        @Override
-        protected JSONObject doInBackground(JSONObject... jsonObjects) {
-            JSONObject jsonBody=new JSONObject();
-            try {
-                jsonBody.put("enroll",enroll_string);
-                jsonBody.put("pass",pass_string);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            JSONObject json = new JSONObject();
-                            String check = null, n = null, d2d = null ;
-                            try {
-                                check = response.getString("success");
-                                n = response.getString("part");
-                                d2d = response.getString("d2d");
-                                json.put("success",check);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            return json;
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-
-                        }
-                    });
-        }
-
-        @Override
-        protected void onPostExecute(JSONObject jsonObject) {
-            progress.setVisibility(View.GONE);
-        }
-
-
-    } */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

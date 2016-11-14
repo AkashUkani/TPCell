@@ -55,8 +55,8 @@ public class Personal_Info_Fragment extends Fragment {
     private EditText Cast;
     private EditText Area;
     private EditText Landmark;
-    private Button submit;
-    private ProgressBar progress;
+    private Button submit1;
+    private ProgressBar progress1;
 
     final String url=config.url+"/personal";
 
@@ -92,8 +92,8 @@ public class Personal_Info_Fragment extends Fragment {
         Cast = (EditText) getActivity().findViewById(R.id.data_entry_cast);
         Area = (EditText) getActivity().findViewById(R.id.data_entry_area);
         Landmark = (EditText) getActivity().findViewById(R.id.data_entry_landmark);
-        progress = (ProgressBar) getActivity().findViewById(R.id.progressBar);
-        submit=(Button)getActivity().findViewById(R.id.submit_person_info);
+        progress1 = (ProgressBar) getActivity().findViewById(R.id.progressBar1);
+        submit1=(Button)getActivity().findViewById(R.id.submit_person_info);
 
         final String data=sharedPreferences.getString("data1","");
 
@@ -142,16 +142,26 @@ public class Personal_Info_Fragment extends Fragment {
             final String state = sharedPreferences.getString("state","");
             State.setText(state);
             State.setEnabled(false);
-
-            submit.setEnabled(false);
+            submit1.setEnabled(false);
         }
 
-        submit.setOnClickListener(new View.OnClickListener() {
+
+      /*  submit1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submit.setBackgroundResource(R.drawable.button_design2);
-                progress.setVisibility(View.VISIBLE);
-                submit.setText("");
+                submit1.setText("");
+                progress1.setVisibility(view.VISIBLE);
+
+            }
+        });*/
+        submit1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                submit1.setBackgroundResource(R.drawable.button_design2);
+                submit1.setText("");
+                progress1.setVisibility(view.VISIBLE);
+                submit1.setText("");
+                progress1.setVisibility(view.VISIBLE);
                 final String firstname = FirstName.getText().toString();
                 final String lastname = LastName.getText().toString();
                 final String middlename = MiddleName.getText().toString();
@@ -166,35 +176,48 @@ public class Personal_Info_Fragment extends Fragment {
                 final String area = Area.getText().toString();
 
                 final String city = City.getText().toString();
-                final String pin_code = State.getText().toString();
-                final String state = Pin_Code.getText().toString();
-
+                final String pin_code = Pin_Code.getText().toString();
+                final String state = State.getText().toString();
+                int flag = 0;
                 if(TextUtils.isEmpty(firstname)){
+                    flag=1;
                     FirstName.setError("Please Enter your First Name");
                 }else if(TextUtils.isEmpty(middlename)){
+                    flag=1;
                     MiddleName.setError("Please Enter your Middle Name");
                 }else if(TextUtils.isEmpty(lastname)){
+                    flag=1;
                     LastName.setError("Please Enter your Last Name");
                 }else if(TextUtils.isEmpty(birthdate)){
+                    flag=1;
                     BirthDate.setError("Please Enter your Birth Date");
                 }else if(TextUtils.isEmpty(email)){
+                    flag=1;
                     Email.setError("Please Enter your Email");
                 }else if(TextUtils.isEmpty(contact_no)){
+                    flag=1;
                     Contact_No.setError("Please Enter your Contact no");;
-                }else if(cast.equals(cast)){
+                }else if(TextUtils.isEmpty(cast)){
+                    flag=1;
                     Cast.setError("Please Enter your cast");
-                }else if(TextUtils.isEmpty(contact_no)){
-                    House_No.setError("Please Enter your Contact no");;
                 }else if(TextUtils.isEmpty(house_no)){
-                    Street_Name.setError("Please Enter your House no");
+                    flag=1;
+                    House_No.setError("Please Enter your Contact no");;
                 }else if(TextUtils.isEmpty(street_name)){
+                    flag=1;
+                    Street_Name.setError("Please Enter your House no");
+                }else if(TextUtils.isEmpty(area)){
+                    flag=1;
                     Area.setError("Please Enter Street Name");
                 }else if(TextUtils.isEmpty(city)){
+                    flag=1;
                     City.setError("Please Enter your City");;
                 }else if(TextUtils.isEmpty(pin_code)){
+                    flag=1;
                     Pin_Code.setError("Please Enter Pin Code");;
                 }else if(TextUtils.isEmpty(state)){
-                    State.setError("Please Enter your Contact no");;
+                    flag=1;
+                    State.setError("Please Enter your State");;
                 }else {
                     JSONObject jsonbody = new JSONObject();
                     JSONObject jsonbody1 = new JSONObject();
@@ -248,15 +271,16 @@ public class Personal_Info_Fragment extends Fragment {
                                             editor.putString("pin_code", pin_code);
                                             editor.putString("state", state);
                                             editor.putString("data1", "1");
-                                            progress.setVisibility(View.GONE);
-
                                             editor.commit();
                                         } else {
                                             Toast.makeText(getContext(), s, Toast.LENGTH_LONG ).show();
                                         }
-
                                     } catch (JSONException e) {
                                         e.printStackTrace();
+                                    } finally {
+                                        progress1.setVisibility(View.GONE);
+                                        submit1.setText("SUBMIT");
+                                        submit1.setBackgroundResource(R.drawable.button_design1);
                                     }
                                 }
                             },
@@ -264,14 +288,21 @@ public class Personal_Info_Fragment extends Fragment {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
                                     Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
+                                    progress1.setVisibility(View.GONE);
+                                    submit1.setText("SUBMIT");
+                                    submit1.setBackgroundResource(R.drawable.button_design1);
                                 }
                             });
                     RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
                     requestQueue.add(jsonObjectRequest);
                 }
-                submit.setBackgroundResource(R.drawable.button_design1);
-                submit.setText("SUBMIT");
+                if(flag==1){
+                    progress1.setVisibility(View.GONE);
+                    submit1.setText("SUBMIT");
+                    submit1.setBackgroundResource(R.drawable.button_design1);
+                }
             }
         });
+
     }
 }
